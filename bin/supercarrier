@@ -1,0 +1,14 @@
+#!/bin/ruby
+
+require 'trollop'
+
+options = Trollop::options do
+  version "supercarrier #{Supercarrier::VERSION}"
+
+  banner <<-BANNER
+Deploying Heroku apps 24/7.
+BANNER
+end
+
+Supercarrier.execute(options)
+
