@@ -17,5 +17,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'heroku-api', '~> 0.3.0'
   s.add_dependency 'trollop', '~> 2.0.0'
 
+  s.add_development_dependency 'rake', '~> 10.0.4'
   s.add_development_dependency 'rspec', '~> 2.13.0'
 end
