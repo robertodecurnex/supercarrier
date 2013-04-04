@@ -37,5 +37,21 @@ describe Supercarrier  do
     end
 
   end
+  
+  describe '::projects' do
+    
+    before :each do
+      Supercarrier.add_project('https://github.com/robertodecurnex/J50Npi.git', 'test')
+    end
+    
+    let :projects do
+      Supercarrier.projects
+    end
+
+    it 'should returna  Suppercarrier::ProjectsProxy instance' do
+      projects.should equal Supercarrier::ProjectsProxy
+    end
+
+  end
 
 end

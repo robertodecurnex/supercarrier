@@ -5,8 +5,7 @@ describe Supercarrier::Project do
   describe '#add_remote' do
     
     before :each do
-      p = Supercarrier.add_project('https://github.com/robertodecurnex/J50Npi.git', 'test')
-      p.add_remote('git@heroku.com:heroku-dummy-app.git', 'production')
+      Supercarrier.add_project('https://github.com/robertodecurnex/J50Npi.git', 'test')
     end
 
     let :project do
@@ -14,11 +13,15 @@ describe Supercarrier::Project do
     end
 
     let :remotes do
-      project.remotes
+      project.add_remote('git@heroku.com:heroku-dummy-app.git', 'production')
+    end
+
+    it 'should return a Supercarrier::RemotesProxy instance' do
+      remotes.should be_instance_of Supercarrier::RemoteProxy
     end
 
     it 'should add the given repo URI as the "production" remote source' do
-      remotes.should_not be_empty
+      remotes['poduction'].uri.should == 'git@heroku.com:heroku-dummy-app.git'
     end
 
   end

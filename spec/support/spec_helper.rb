@@ -2,6 +2,8 @@ require_relative '../../lib/supercarrier'
 
 require 'rspec'
 
+TEST_REPO_URI = 'https://github.com/robertodecurnex/dummy_repo.git'
+
 RSpec.configure do |config|
 
   # Clean the .projects directory after all the tests have run. 

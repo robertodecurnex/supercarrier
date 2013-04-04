@@ -13,18 +13,18 @@ class Supercarrier
     #
     # @param [String] uri the remote source uri.
     # @param [String] name the remote source name.
-    # @return [Supercarrier::Project] return self, allowing chained methods.
+    # @return [Supercarirer::RemoteProxy] the remote proxy instance of the project.
     def add_remote(uri, name)
       @repository.add_remote(name,uri)
       
-      return self
+      self.remotes
     end
 
     # Returns a collection of the project remote sources.
     #
-    # @return [<Git::Remote>] the remote sources.
+    # @return [Supercarrier::RemoteProxy] the remote proxy instance of the project.
     def remotes
-      @repository.remotes
+      Supercarrier::RemoteProxy.new(@repository)
     end
 
     # Opens the given project repository and returns its Supercarrier::Project representation.
