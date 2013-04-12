@@ -1,9 +1,11 @@
+####################
+require 'coveralls'# Generates and push coverage 
+Coveralls.wear!    # reports to coveralls.
+####################
+
 require_relative '../../lib/supercarrier'
 
-require 'coveralls'
 require 'rspec'
-
-Coveralls.wear!
 
 TEST_REPO_URI = 'https://github.com/robertodecurnex/dummy_repo.git'
 
